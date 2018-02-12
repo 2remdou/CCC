@@ -1,3 +1,7 @@
+*
+!server
+!client
+!README.md
 #Server
 server/node_modules
 server/.env
