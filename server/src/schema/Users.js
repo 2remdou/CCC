@@ -1,16 +1,31 @@
 const users = `
-    type GroupeUsers {
+    type GroupeUser {
         id: ID!
         libelle: String
     }
 
-    type Users {
+    input GroupeUserInput {
+        id: ID
+        libelle: String
+    }
+
+    type User {
         id: ID!
-        nom: String
-        prenom: String
+        nom: String!
+        prenom: String!
         email: String
-        telephone: String
-        groupe: GroupeUsers!
+        telephone: String!
+        groupe: GroupeUser!
+    }
+
+    input UserInput {
+        id: ID
+        nom: String!
+        prenom: String!
+        email: String
+        telephone: String!
+        groupeUser: GroupeUserInput!
+        password: String!
     }
 `;
 module.exports = users;

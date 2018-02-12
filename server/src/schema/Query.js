@@ -1,7 +1,9 @@
 module.exports = `
     type Query {
-        groupeUser(id: ID!): GroupeUsers
-        groupeUsers: [GroupeUsers]
-        users: [Users]
+        groupeUser(id: ID!): GroupeUser
+        groupeUsers: [GroupeUser]
+
+        user(id: ID!): User
+        users: [User]
     }
 `;
