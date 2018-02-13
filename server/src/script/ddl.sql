@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; 
 
-create table groupeUsers(
+create table groupeUser(
     id uuid DEFAULT uuid_generate_v4() primary key,
     libelle varchar(200) NOT NULL
 );
@@ -12,7 +12,7 @@ create table users(
     email varchar(200) UNIQUE,
     telephone varchar(200) NOT NULL UNIQUE,
     password varchar(200) NOT NULL,
-    idGroupeUser uuid NOT NULL constraint fk_user_groupeUser  references groupeUsers(id)
+    idGroupeUser uuid NOT NULL constraint fk_user_groupeUser  references groupeUser(id)
 
 );
 
