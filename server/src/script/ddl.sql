@@ -5,6 +5,8 @@ create table groupeUser(
     libelle varchar(200) NOT NULL
 );
 
+insert into groupeUser(libelle) values('ADMIN');
+
 create table users(
     id uuid DEFAULT uuid_generate_v4() primary key,
     nom varchar(100) NOT NULL,

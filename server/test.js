@@ -1,13 +1,19 @@
-require('dotenv').config();
-const { Client } = require('pg');
-const client = new Client();
-(
-    async () => {
-        await client.connect();
-        console.log('toure');
+const modelUser = require('./src/model/Users');
+const model = require('./src/model');
+const util = require('./src/util');
+const user={
+    id:'dddd-jjjj-sss',
+    nom: 'Toure',
+    prenom: 'Mamadou',
+    email:'lkjlkjl@gmail.com',
+    groupeUser:{
+        id:'tttt-aaaa-bbbb'
+    },
+    password:125,
+    'eleve':'ok',
+    'moi':{id:5}
+}
 
-        const res = await client.query('SELECT $1::text as message', ['Hello world!']);
-        console.log(res.rows[0].message); // Hello world!
-        await client.end();
-    }
-)();
+console.log(Object.keys(Object.keys(user)));
+
+// model.insert(user,modelUser);
