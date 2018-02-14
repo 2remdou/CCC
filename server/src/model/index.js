@@ -10,7 +10,6 @@ module.exports = {
         let statement = `insert into ${model.table}${util.mettreEntreParenthese(Object.keys(newValue))} 
             values${util.mettreEntreParentheseAvecQuote(Object.values(newValue))};
         `
-        console.log(statement);
     },
     db
 }
