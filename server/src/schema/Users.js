@@ -15,7 +15,7 @@ const users = `
         prenom: String!
         email: String
         telephone: String!
-        groupe: GroupeUser!
+        groupeUser: GroupeUser!
     }
 
     input UserInput {

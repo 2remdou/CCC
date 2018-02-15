@@ -14,6 +14,6 @@ const user={
     'moi':{id:5}
 }
 
-console.log(Object.keys(Object.keys(user)));
+// console.log(Object.keys(Object.keys(user)).map(key=>`$${parseInt(key)+1}`));
 
-// model.insert(user,modelUser);
+ model.insert(user,modelUser);

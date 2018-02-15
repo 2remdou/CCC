@@ -1,10 +1,12 @@
-const model = require('../model/Users');
+const model = require('../model');
+const modelUser = require('../model/Users');
 const bcrypt = require('bcrypt');
+const table = 'users';
 const handleError = require('../Errors/handleError');
 module.exports = {
     query : {
-        groupeUser: (_,args,context) =>  model.find(args.id).then(res=>res).catch(error=>handleError.db(error)) ,
-        groupeUsers : (_,args,context) => model.findAll().then(res=>res).catch(error=>handleError.db(error)),
+        groupeUser: (_,args,context) =>  model.find(table,args.id).then(user=>user).catch(error=>handleError.db(error)) ,
+        groupeUsers : (_,args,context) => model.findAll(table).then(users=>users).catch(error=>handleError.db(error)),
     },
     fields: {
 
@@ -12,7 +14,7 @@ module.exports = {
     mutation: {
         createUser: async (_,{user},context) => {
             user.password = await bcrypt.hash(user.password,12);
-            return model.insert(user).then(res=>res).catch(error=>handleError.db(error));
+            return model.insert(user,modelUser).then(user=>user).catch(error=>handleError.db(error));
         }
     }
 }
