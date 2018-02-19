@@ -16,4 +16,6 @@ const user={
 
 // console.log(Object.keys(Object.keys(user)).map(key=>`$${parseInt(key)+1}`));
 
- model.insert(user,modelUser);
+//  model.insert(user,modelUser);
+
+console.log(util.numerotationForRequetePrepare(['nom','prenom','age']));

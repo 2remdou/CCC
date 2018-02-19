@@ -3,7 +3,7 @@ const join = require('lodash/fp/join');
 
 const capitalize = (word) => word.replace(/\b\w/, l=>l.toUpperCase());
 
-const hydrate = (element,model) => {
+const prepareForDB = (element,model) => {
     const  e= {...element};
     model.relations.forEach(relation=>{
         if(e[`${relation}`] && typeof e[relation]==='object' && e[relation]['id']){
@@ -19,16 +19,20 @@ const hydrate = (element,model) => {
     return e;
 };
 
-const mettreEntreParenthese = (keys) => `(${keys.join(',')})` ;
+const mettreEntreParenthese = (keys) => `(${keys})` ;
 
 const mettreEntreParentheseAvecQuote = (keys) => `(${keys.map(k=>typeof k === 'number'?`${k}`:`'${k}'`).join(',')})` ;
 
-const numerotationForRequetePrepare = (values) => Object.keys(Object.keys(values)).map(key=>`$${parseInt(key)+1}`);
+const numerotationForRequetePrepare = (values) => Object.keys(Object.keys(values))
+                                                        .map(key=>`$${parseInt(key)+1}`);
+
+const generateInsertStatement = (table,value) => `insert into ${table}${mettreEntreParenthese(Object.keys(value))} values${mettreEntreParenthese(numerotationForRequetePrepare(value))} returning *`
 
 module.exports = {
     capitalize, 
-    hydrate,
+    prepareForDB,
     mettreEntreParenthese, 
     mettreEntreParentheseAvecQuote,
-    numerotationForRequetePrepare
+    numerotationForRequetePrepare,
+    generateInsertStatement 
 }
