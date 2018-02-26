@@ -8,8 +8,7 @@ module.exports = {
         const newValue = util.prepareForDB(value,model);
         delete newValue['id'];
         let statement = util.generateInsertStatement(model.table,value);
-       return db.querySingleRow(statement,Object.values(newValue))
-        
+       return db.querySingleRow(statement,Object.values(newValue))     
     },
     db
 }

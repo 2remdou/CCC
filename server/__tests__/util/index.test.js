@@ -1,4 +1,17 @@
 const util = require('../../src/util');
+const userBefore={
+    id:'dddd-jjjj-sss',
+    nom: 'Toure',
+    prenom: 'Mamadou',
+    email:'lkjlkjl@gmail.com',
+    groupeUser:{
+        id:'tttt-aaaa-bbbb'
+    }, 
+    password:125,
+    'eleve':'ok',
+    'moi':{id:5}
+};
+
 describe('test util',()=>{
 
     test('capitalize',()=>{
@@ -6,18 +19,6 @@ describe('test util',()=>{
     });
 
     test('prepareForDb',()=>{
-        const userBefore={
-            id:'dddd-jjjj-sss',
-            nom: 'Toure',
-            prenom: 'Mamadou',
-            email:'lkjlkjl@gmail.com',
-            groupeUser:{
-                id:'tttt-aaaa-bbbb'
-            },
-            password:125,
-            'eleve':'ok',
-            'moi':{id:5}
-        };
         const userAfter={
             id:'dddd-jjjj-sss',
             nom: 'Toure',

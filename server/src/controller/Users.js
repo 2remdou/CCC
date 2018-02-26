@@ -5,8 +5,8 @@ const table = 'users';
 const handleError = require('../Errors/handleError');
 module.exports = {
     query : {
-        groupeUser: (_,args,context) =>  model.find(table,args.id).then(user=>user).catch(error=>handleError.db(error)) ,
-        groupeUsers : (_,args,context) => model.findAll(table).then(users=>users).catch(error=>handleError.db(error)),
+        user: (_,args,context) =>  model.find(table,args.id).then(user=>user).catch(error=>handleError.db(error)) ,
+        Users : (_,args,context) => model.findAll(table).then(users=>users).catch(error=>handleError.db(error)),
     },
     fields: {
 
